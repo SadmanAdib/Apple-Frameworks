@@ -7,9 +7,10 @@
 
 import SwiftUI
 
-struct DetailView: View {
+struct FrameworkDetailView: View {
     
-    var framework: Framework = MockData.sampleFramework
+    var framework: Framework
+    @Binding var isShowingDetailView: Bool
     
     var body: some View {
         VStack{
@@ -37,27 +38,16 @@ struct DetailView: View {
             
             Spacer()
             
-            Button {
-                print("button pressed")
-            } label: {
-                Text("Learn more")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                    .frame(width: 280, height: 50)
-                    .background(.red)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-                    
-            }
+            AFButton(title: "Learn more")
            
-            
-            
         }
     }
 }
 
-struct DetailView_Previews: PreviewProvider {
+struct FrameworkDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView()
+        FrameworkDetailView(framework: MockData.sampleFramework, isShowingDetailView: .constant(false))
     }
 }
+
+
