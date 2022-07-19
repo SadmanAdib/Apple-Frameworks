@@ -18,7 +18,7 @@ struct FrameworkDetailView: View {
             HStack{
                 Spacer()
                 Button{
-                    print("cross pressed")
+                    isShowingDetailView = false
                 } label: {
                     Image(systemName: "xmark")
                         .foregroundColor(Color(.label))
