@@ -29,23 +29,34 @@ struct FrameworkDetailView: View {
             
             Spacer()
             
-            Button {
-                isShowingSafariView = true
-            } label: {
-                //AFButton(title: "Learn more")
+            Link(destination: URL(string: framework.urlString) ?? URL(string: "www.apple.com")!) {
                 Label("Learn more", systemImage: "book.fill")
+                    .frame(width: 200, height: 50)
+                    .tint(.red)
+                    .background(.secondary)
+                    .cornerRadius(10)
                     
+                
             }
-            .buttonStyle(.bordered)
-            .controlSize(.large)
-            .tint(.red)
+            
+            Spacer()
+//            Button {
+//                isShowingSafariView = true
+//            } label: {
+//                //AFButton(title: "Learn more")
+//                Label("Learn more", systemImage: "book.fill")
+//
+//            }
+//            .buttonStyle(.bordered)
+//            .controlSize(.large)
+//            .tint(.red)
             
             
            
         }
-        .sheet(isPresented: $isShowingSafariView, content: {
-            SafariView(url: URL(string: framework.urlString) ?? URL(string: "www.apple.com")!)
-        })
+//        .sheet(isPresented: $isShowingSafariView, content: {
+//            SafariView(url: URL(string: framework.urlString) ?? URL(string: "www.apple.com")!)
+//        })
     }
 }
 
