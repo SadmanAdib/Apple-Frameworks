@@ -11,8 +11,6 @@ struct FrameworkGridView: View {
     
     @StateObject var viewModel = FrameworkGridViewModel()
     
-    
-    
     var body: some View {
         
         NavigationView{
@@ -28,7 +26,7 @@ struct FrameworkGridView: View {
             }
             .navigationTitle("🍎 Frameworks")
             .sheet(isPresented: $viewModel.isShowingDetailView){
-                FrameworkDetailView(framework: viewModel.selectedFramework!, isShowingDetailView: $viewModel.isShowingDetailView)
+                FrameworkDetailView(viewModel: FrameworkDetailViewModel(framework: viewModel.selectedFramework!, isShowingDetailView: $viewModel.isShowingDetailView ))
             }
         }
     }
@@ -37,7 +35,8 @@ struct FrameworkGridView: View {
 struct FrameworkGridView_Previews: PreviewProvider {
     static var previews: some View {
         FrameworkGridView()
-            .preferredColorScheme(.dark)
+            .previewInterfaceOrientation(.portrait)
+            //.preferredColorScheme(.dark)
     }
 }
 
